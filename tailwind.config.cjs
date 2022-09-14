@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         display: 'Poppins, sans-serif',
       },
+      backgroundImage: {
+        'hero-banner': 'url(/assets/banner-desktop-compressed.jpg)',
+      },
     },
   },
   plugins: [],
