@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopify Demo</title>
+    <link rel="stylesheet" href="./dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <style>
+      :root {
+        --swiper-theme-color: #eee;
+      }
+
+      .swiper-slide {
+        padding: 0.5rem 0;
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        content: '';
+      }
+
+      i {
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-[#9e7b9d]">
+      <div class="swiper max-w-sm h-8">
+        <div class="swiper-wrapper text-white text-xs font-display text-center">
+          <i class="swiper-slide">🧡 Free shipping on orders above $100 🧡</i>
+          <i class="swiper-slide">Jackie loves HypeIndaHouse</i>
+          <i class="swiper-slide">Adswave creates HypeIndaHouse</i>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <svg
+            fill="none"
+            focusable="false"
+            width="12"
+            height="10"
+            class="icon icon--nav-arrow-left-small icon--direction-aware"
+            viewBox="0 0 12 10"
+          >
+            <path
+              d="M12 5L2.25 5M2.25 5L6.15 9.16M2.25 5L6.15 0.840001"
+              stroke="currentColor"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg
+            fill="none"
+            focusable="false"
+            width="12"
+            height="10"
+            class="icon icon--nav-arrow-right-small icon--direction-aware"
+            viewBox="0 0 12 10"
+          >
+            <path
+              d="M-3.63679e-07 5L9.75 5M9.75 5L5.85 9.16M9.75 5L5.85 0.840001"
+              stroke="currentColor"
+              stroke-width="2"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- script below -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'vertical',
+        loop: true,
+        speed: 300,
+        allowTouchMove: false,
+        autoplay: {
+          delay: 5000,
+          pauseOnMouseEnter: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
+  </body>
+</html>
