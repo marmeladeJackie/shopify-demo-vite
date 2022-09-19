@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: 'Poppins, sans-serif',
+        poppins: 'Poppins, sans-serif',
+        roboto: 'Roboto Condensed, sans-serif',
       },
       colors: {
         'onda-primary': '#254e14',
