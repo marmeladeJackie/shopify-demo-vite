@@ -24,15 +24,17 @@
     </style>
   </head>
   <body>
-    <header class="jk-py-2 jk-shadow-md">
+    <div class="announcement-bar jk-h-10 jk-bg-black"></div>
+    <header
+      class="jk-transition jk-duration-500 jk-py-2 jk-sticky jk-top-0 jk-float-left jk-w-full jk-text-white"
+    >
       <div
         class="jk-flex jk-justify-between jk-items-center jk-max-w-6xl jk-mx-auto jk-px-6"
       >
         <div class="jk-relative hamburger-icon" x-data="{ isOpen: false }">
           <a
-            href="#"
             @click="isOpen = !isOpen"
-            class="jk-block jk-h-6 jk-w-6 jk-text-onda-primary"
+            class="jk-block jk-h-6 jk-w-6 jk-cursor-pointer"
           >
             <span x-show="!isOpen" class="material-symbols-rounded">
               menu
@@ -90,7 +92,7 @@
             alt="Logo"
           />
         </a>
-        <a href="/cart" class="jk-block jk-h-6 jk-w-6 jk-text-onda-primary">
+        <a href="/cart" class="jk-block jk-h-6 jk-w-6">
           <span class="material-symbols-rounded"> shopping_cart </span>
         </a>
       </div>
@@ -100,21 +102,25 @@
     <!-- script below -->
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
-      const icons = document.querySelectorAll(
-        'header .material-symbols-rounded'
-      );
-
       const header = document.querySelector('header');
-      // const hamburgerIcon = icons[0];
-      // const closeIcon = icons[1];
-      // const cartIcon = icons[2];
-      // console.log(hamburgerIcon, closeIcon, cartIcon);
 
       function changeWhite() {
-        console.log(header.getBoundingClientRect().top);
+        const top = header.getBoundingClientRect().top;
+        console.log(top);
+        if (top == 0) {
+          header.classList.add('jk-bg-white');
+          header.classList.add('jk-shadow-md');
+          header.classList.add('jk-text-onda-primary');
+          header.classList.remove('jk-text-white');
+        } else {
+          header.classList.remove('jk-bg-white');
+          header.classList.remove('jk-shadow-md');
+          header.classList.remove('jk-text-onda-primary');
+          header.classList.add('jk-text-white');
+        }
       }
 
-      window.addEventListener('scroll', _.throttle(changeWhite, 1000));
+      window.addEventListener('scroll', _.throttle(changeWhite, 200));
     </script>
   </body>
 </html>
