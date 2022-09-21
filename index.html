@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="/dist/output.css" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+      /* fallback */
+      @font-face {
+        font-family: 'Material Symbols Rounded';
+        font-display: block;
+        font-style: normal;
+        font-weight: 100 700;
+        src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v56/sykg-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjzaqkNCeE.woff2)
+          format('woff2');
+      }
     </style>
   </head>
   <body>
@@ -87,6 +96,25 @@
       </div>
     </header>
     <main class="jk-bg-indigo-200 jk-min-h-screen"></main>
+    <main class="jk-bg-indigo-200 jk-min-h-screen"></main>
     <!-- script below -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+      const icons = document.querySelectorAll(
+        'header .material-symbols-rounded'
+      );
+
+      const header = document.querySelector('header');
+      // const hamburgerIcon = icons[0];
+      // const closeIcon = icons[1];
+      // const cartIcon = icons[2];
+      // console.log(hamburgerIcon, closeIcon, cartIcon);
+
+      function changeWhite() {
+        console.log(header.getBoundingClientRect().top);
+      }
+
+      window.addEventListener('scroll', _.throttle(changeWhite, 1000));
+    </script>
   </body>
 </html>
