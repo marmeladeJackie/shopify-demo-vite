@@ -26,7 +26,7 @@
   <body>
     <div class="announcement-bar jk-h-10 jk-bg-black"></div>
     <header
-      class="jk-transition jk-duration-500 jk-py-2 jk-sticky jk-top-0 jk-float-left jk-w-full jk-text-white"
+      class="jk-transition jk-duration-500 jk-py-2 jk-sticky jk-top-0 md:jk-float-left md:jk-w-full jk-bg-white jk-text-onda-primary md:jk-bg-transparent md:jk-text-white"
     >
       <div
         class="jk-flex jk-justify-between jk-items-center jk-max-w-6xl jk-mx-auto jk-px-6"
@@ -104,23 +104,25 @@
     <script>
       const header = document.querySelector('header');
 
-      function changeWhite() {
+      function changeHeader() {
+        // This function only works in PC env.
+        if (window.innerWidth < 768) return;
+
         const top = header.getBoundingClientRect().top;
-        console.log(top);
         if (top == 0) {
-          header.classList.add('jk-bg-white');
-          header.classList.add('jk-shadow-md');
-          header.classList.add('jk-text-onda-primary');
-          header.classList.remove('jk-text-white');
+          header.classList.add('md:jk-bg-white');
+          header.classList.add('md:jk-shadow-md');
+          header.classList.add('md:jk-text-onda-primary');
+          header.classList.remove('md:jk-text-white');
         } else {
-          header.classList.remove('jk-bg-white');
-          header.classList.remove('jk-shadow-md');
-          header.classList.remove('jk-text-onda-primary');
-          header.classList.add('jk-text-white');
+          header.classList.remove('md:jk-bg-white');
+          header.classList.remove('md:jk-shadow-md');
+          header.classList.remove('md:jk-text-onda-primary');
+          header.classList.add('md:jk-text-white');
         }
       }
 
-      window.addEventListener('scroll', _.throttle(changeWhite, 200));
+      window.addEventListener('scroll', _.throttle(changeHeader, 200));
     </script>
   </body>
 </html>
